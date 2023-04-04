@@ -14,29 +14,27 @@ namespace Practical2_Account
 
         public Customer_Account(long acNumber, string cName)
         {
-            this.customer_accountNo = acNumber;
-            this.customer_name = cName;
+            customer_accountNo = acNumber;
+            customer_name = cName;
 
         }
 
-        /* 
-         -  PrintInfo() method is used for displaying User information.
-            i.e it displays Account Number (long int ) , Customer Name(string ) and Bank Name (sting) .
-            it takes 0 argument and returns 0.
-         */
-        public void PrintInfo()
-        {
-            System.Console.WriteLine("Output");
-            Console.WriteLine("Bank Name : " + bank_name);
-            Console.WriteLine("Customer Name : " + customer_name);
-            Console.WriteLine("Account Number : " + customer_accountNo);
+        /// <summary>
+        /// PrintInfo() method returns well formatted string that contains User information
+        /// </summary>
+        /// <returns>String</returns>
+        public string PrintInfo()
+        { 
+            return $"Output\nBank Name : {bank_name}\n" +
+                   $"Customer Name : {customer_name}\n" +
+                   $"Account Number : {customer_accountNo}";
         }
 
         public static void Main(string[] args)
         {
-            Customer_Account customer_Account = new Customer_Account(121212121221,"Gaurav Mori");
+            Customer_Account customer_Account = new Customer_Account(121212121221, "Gaurav Mori");
             customer_Account.bank_name = "HDFC India";
-            customer_Account.PrintInfo();
+            Console.WriteLine(customer_Account.PrintInfo());
         }
     }
 }
